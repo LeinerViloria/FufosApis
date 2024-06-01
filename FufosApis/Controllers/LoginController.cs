@@ -69,7 +69,7 @@ namespace FufosApis.Controllers
             }
 
             var Token = _jWTService.Generate(NewUser);
-            return Ok(Token);
+            return Ok(new{ Data = Token });
         }
     }
 }

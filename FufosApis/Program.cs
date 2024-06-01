@@ -13,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddGlobalConfiguration<FufosContext>(builder.Configuration);
 builder.Services.AddScoped<IJWTService, JWTService>();
+builder.Services.Configure<TokenConfiguration>(builder.Configuration.GetSection("Authentication"));
 
 var app = builder.Build();
 

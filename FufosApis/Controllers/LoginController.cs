@@ -32,7 +32,10 @@ namespace FufosApis.Controllers
                         Rowid = x.Rowid,
                         Email = x.Email,
                         Password = x.Password
-                    }).First();
+                    }).FirstOrDefault();
+
+                if(UserBd is null)
+                    return BadRequest(new { Errors = "Invalid credentials" });
 
                 var PasswordIsValid = Utils.Compare(_tokenConfiguration.Salt, User.Password, UserBd.Password);
 

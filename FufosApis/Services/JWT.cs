@@ -34,7 +34,10 @@ namespace FufosApis.Services
             var JwtUser = new JWTUserDTO()
             {
                 Rowid = obj.Rowid,
-                Email = obj.Email
+                Email = obj.Email,
+                FullName = obj.FullName,
+                IsAdmin = obj.IsAdmin,
+                IsEmployee = obj.IsEmployee
             };
 
             var key = Encoding.ASCII.GetBytes(SecretKey);

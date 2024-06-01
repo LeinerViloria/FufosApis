@@ -52,6 +52,7 @@ namespace FufosApis.Controllers
         {
             var NewUser = new User()
             {
+                FullName = User.FullName,
                 Email = User.Email,
                 Password = User.Password
             };

@@ -9,6 +9,9 @@ namespace FufosEntities.Entities;
 public class User : BaseUser<int>
 {
     [Required]
+    [StringLength(128)]
+    public string FullName { get; set; } = null!;
+    [Required]
     [StringLength(128, MinimumLength = 6, ErrorMessage = "The password must have between 6 and 14 characters.")]
     public string Password {get; set;} = null!;
     public bool IsAdmin {get; set;}

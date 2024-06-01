@@ -1,5 +1,6 @@
 using Appointment.SDK.Backend.Configuration;
 using FufosApis.Database;
+using FufosApis.Services;
 using FufosEntities.DTOS;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddGlobalConfiguration<FufosContext>(builder.Configuration);
+builder.Services.AddScoped<IJWTService, JWTService>();
 
 var app = builder.Build();
 

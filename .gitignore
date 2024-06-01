@@ -6,6 +6,8 @@
 # dotenv files
 .env
 
+/FufosApis/Migrations
+
 # User-specific files
 *.rsuser
 *.suo

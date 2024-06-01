@@ -1,5 +1,6 @@
 using Appointment.SDK.Backend.Configuration;
 using FufosApis.Database;
+using FufosEntities.DTOS;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,19 +31,16 @@ app.MapControllers();
 // {
 //     try
 //     {
-//         var Login = ActivatorUtilities.CreateInstance<LoginRepository>(provider);
-//         var Result = new ActionResult<string>(){
-//             Success = true,
-//             Data = Login.Login(Data)
-//         };
-//         return Result;
+//         // var Login = ActivatorUtilities.CreateInstance<LoginRepository>(provider);
+//         // var Result = new ActionResult<string>(){
+//         //     Success = true,
+//         //     Data = Login.Login(Data)
+//         // };
+//         return null!;
 //     }
 //     catch (Exception e)
 //     {
-//         var Error = new ActionResult<string>(){
-//             Error = "Invalid credentials"
-//         };
-//         return Error;
+//         return null!;
 //     }
 // }).WithName("LogIn")
 // .WithOpenApi();
@@ -51,12 +49,12 @@ app.MapControllers();
 // {
 //    try
 //    {
-//         var Login = ActivatorUtilities.CreateInstance<LoginRepository>(provider);
-//         var Result = new ActionResult<string>(){
-//             Success = true,
-//             Data = Login.Register(Data)
-//         };
-//         return Result;
+//         // var Login = ActivatorUtilities.CreateInstance<LoginRepository>(provider);
+//         // var Result = new ActionResult<string>(){
+//         //     Success = true,
+//         //     Data = Login.Register(Data)
+//         // };
+//         return "";
 //    }
 //    catch (Exception e)
 //    {

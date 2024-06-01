@@ -58,7 +58,7 @@ namespace FufosApis.Controllers
             var IsValid = DataAnnotationsValidator.Validate<User>(NewUser, ref Errors);
 
             if (!IsValid)
-                throw new ArgumentNullException(JsonConvert.SerializeObject(Errors.Select(x => x.ErrorMessage)));
+                return BadRequest(new {Errors = Errors.Select(x => x.ErrorMessage)});
 
             NewUser.Password = Utils.HashTo256(NewUser.Password, _tokenConfiguration.Salt);
 

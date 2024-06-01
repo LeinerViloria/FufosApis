@@ -27,44 +27,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// app.MapPost("/login", (IServiceProvider provider, UserDTO Data) =>
-// {
-//     try
-//     {
-//         // var Login = ActivatorUtilities.CreateInstance<LoginRepository>(provider);
-//         // var Result = new ActionResult<string>(){
-//         //     Success = true,
-//         //     Data = Login.Login(Data)
-//         // };
-//         return null!;
-//     }
-//     catch (Exception e)
-//     {
-//         return null!;
-//     }
-// }).WithName("LogIn")
-// .WithOpenApi();
-
-// app.MapPost("/register", (IServiceProvider provider, UserDTO Data) =>
-// {
-//    try
-//    {
-//         // var Login = ActivatorUtilities.CreateInstance<LoginRepository>(provider);
-//         // var Result = new ActionResult<string>(){
-//         //     Success = true,
-//         //     Data = Login.Register(Data)
-//         // };
-//         return "";
-//    }
-//    catch (Exception e)
-//    {
-//         var Error = new ActionResult<string>(){
-//             Error = string.IsNullOrEmpty($"{e.InnerException}") ?
-//             e.Message : $"{e.InnerException}"
-//         };
-//         return Error;
-//    }
-// }).WithName("SignUp")
-// .WithOpenApi();
-
 app.Run();

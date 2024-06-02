@@ -10,7 +10,7 @@ public class Category : BaseEntity<short>
     [StringLength(60)]
     public string Name {get; set;} = null!;
 
-    public ICollection<Product>? Products {get; set;}
+    public virtual ICollection<Product>? Products {get; set;}
 
     public override string ToString() => $"{Name}";
 }

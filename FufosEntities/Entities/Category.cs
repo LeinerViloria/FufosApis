@@ -11,4 +11,6 @@ public class Category : BaseEntity<short>
     public string Name {get; set;} = null!;
 
     public ICollection<Product>? Products {get; set;}
+
+    public override string ToString() => $"{Name}";
 }

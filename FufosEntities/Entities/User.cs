@@ -16,4 +16,6 @@ public class User : BaseUser<int>
     public string Password {get; set;} = null!;
     public bool IsAdmin {get; set;}
     public bool IsEmployee {get; set;}
+
+    public override string ToString() => $"{FullName}";
 }

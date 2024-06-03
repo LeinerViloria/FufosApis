@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using FufosEntities.Entities;
 using FufosEntities.Utilities;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
 using FufosApis.Utilities;
 using FufosApis.Services;
 using Microsoft.Extensions.Options;
@@ -30,6 +29,7 @@ namespace FufosApis.Controllers
                     .Where(x => x.Email == User.Email)
                     .Select(x => new User{
                         Rowid = x.Rowid,
+                        FullName = x.FullName,
                         Email = x.Email,
                         Password = x.Password
                     }).FirstOrDefault();
@@ -52,7 +52,7 @@ namespace FufosApis.Controllers
         {
             var NewUser = new User()
             {
-                FullName = User.FullName ?? string.Empty,
+                FullName = User.FullName ?? $"{Guid.NewGuid()}",
                 Email = User.Email,
                 Password = User.Password
             };
@@ -63,6 +63,8 @@ namespace FufosApis.Controllers
 
             if (!IsValid)
                 return BadRequest(new {Errors = Errors.Select(x => x.ErrorMessage)});
+
+            NewUser.FullName = User.FullName ?? User.Email.Split("@")[0];
 
             NewUser.Password = Utils.HashTo256(NewUser.Password, _tokenConfiguration.Salt);
 

@@ -85,11 +85,11 @@ namespace FufosApis.Controllers
             {
                 var Token = Context.Request.Headers.Authorization[0]!.Split(' ')[1];
                 var Result = _jWTService.Validate<JWTUserDTO>(Token);
-                return Ok(new {data= Result});
+                return Ok(new { data = Result });
             }
             catch
             {
-                return BadRequest();
+                return BadRequest(new {Errors = "Invalid credentials"});
             }
         }
     }

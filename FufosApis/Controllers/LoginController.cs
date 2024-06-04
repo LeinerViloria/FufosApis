@@ -31,7 +31,9 @@ namespace FufosApis.Controllers
                         Rowid = x.Rowid,
                         FullName = x.FullName,
                         Email = x.Email,
-                        Password = x.Password
+                        Password = x.Password,
+                        IsAdmin = x.IsAdmin,
+                        IsEmployee = x.IsEmployee
                     }).FirstOrDefault();
 
                 if(UserBd is null)
@@ -76,21 +78,6 @@ namespace FufosApis.Controllers
 
             var Token = _jWTService.Generate(NewUser);
             return Ok(new{ Data = Token });
-        }
-
-        [HttpPost("validatetoken")]
-        public IActionResult ValidateToken(HttpContext Context)
-        {
-            try
-            {
-                var Token = Context.Request.Headers.Authorization[0]!.Split(' ')[1];
-                var Result = _jWTService.Validate<JWTUserDTO>(Token);
-                return Ok(new { data = Result });
-            }
-            catch
-            {
-                return BadRequest(new {Errors = "Invalid credentials"});
-            }
         }
     }
 }

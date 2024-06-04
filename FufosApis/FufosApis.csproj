@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Appointment.SDK.Backend" Version="1.0.5" />
+    <PackageReference Include="Appointment.SDK.Backend" Version="1.0.6" />
     <!-- <ProjectReference Include="..\..\..\Movil\Proyecto final\SDK\Appointment.SDK.Backend\Appointment.SDK.Backend.csproj" /> -->
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
